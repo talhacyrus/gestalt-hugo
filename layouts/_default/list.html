@@ -1,9 +1,12 @@
 {{ define "main" }}
-  <h1>Posts</h1>
-  {{ range .Pages }}
-    <article>
-      <h2>{{ .Title }}</h2>
-      {{ .Content }}
-    </article>
-  {{ end }}
+
+<h1>{{ .Title }}</h1>
+{{ range .Pages.ByPublishDate.Reverse }}
+<p>
+    <a class="font-125" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <br>
+    {{ partial "date-and-tags.html" . }}
+</p>
+{{ end }}
+
 {{ end }}

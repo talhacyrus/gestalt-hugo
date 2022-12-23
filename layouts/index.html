@@ -1,9 +1,8 @@
-{{ define "title" }}
-  <!-- This will override the default value set in baseof.html; i.e., "{{.Site.Title}}" in the original example-->
-  {{ .Title }} &ndash; {{ .Site.Title }}
-{{ end }}
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  <p>We are consolidating all of my code finally.</p>
-  {{ .Content }}
+
+<div id="home-jumbotron" class="jumbotron text-center">
+    <h1>{{ .Site.Title }}</h1>
+    <p class="font-125">{{ .Site.Params.homeText | markdownify }}</p>
+</div>
+
 {{ end }}
